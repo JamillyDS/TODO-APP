@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import Input from "./components/input";
 import TarefaList from "./components/TarefaList";
 
+const backend = import.meta.env.VITE_BACKEND;
+
 function App() {
   const [tarefas, setTarefas] = useState([]);
   const getTarefa = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/tarefa");
+      const res = await fetch(`${backend}http://localhost:3000/api/tarefa`);
       const data = await res.json();
 
       if (!res.ok) {
@@ -21,7 +23,7 @@ function App() {
 
   const updateTarefa = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/tarefa/${id}`, {
+      const res = await fetch(`${backend}/api/tarefa/${id}`, {
         method: "PATCH",
       });
 
