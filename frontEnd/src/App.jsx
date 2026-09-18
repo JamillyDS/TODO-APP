@@ -8,7 +8,7 @@ function App() {
   const [tarefas, setTarefas] = useState([]);
   const getTarefa = async () => {
     try {
-      const res = await fetch(`${backend}http://localhost:3000/api/tarefa`);
+      const res = await fetch(`${backend}/api/tarefa`);
       const data = await res.json();
 
       if (!res.ok) {
