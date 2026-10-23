@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const backend = import.meta.env.VITE_BACKEND;
+const backend = import.meta.env.VITE; // quebra de back
 
 const Input = ({ getTarefa }) => {
   const [tarefa, setTarefa] = useState("");
 
   const postTarefa = async () => {
     try {
-      const res = await fetch(`${backend}/api/tarefa`, {
+      const res = await fetch(`${backend}/api/tarefa`, { 
         method: "POST",
         headers: {
           "Content-Type": "application/json",
